@@ -1,0 +1,48 @@
+<head>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f8f9fa;
+    }
+    table {
+        width: 80%;
+        margin: auto;
+        border-collapse: collapse;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: white;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: center;
+    }
+    th {
+        background-color: #007bff;
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    tr:hover {
+        background-color: #ddd;
+    }
+</style>
+</head>
+<body>
+<table>
+  <tr>
+      <th>Name</th>    
+  </tr>
+  <div *ngIf="developers">
+    <div *ngFor="let dev of developers">          
+        <tr>                   
+            <td>
+             <!--  <a routerLink="{{dev.id}}">{{dev.firstName + ' ' + dev.lastName}}</a> -->
+              <a [routerLink] = "['/bio', dev.id]"> {{dev.firstName + ' ' + dev.lastName}}</a>
+            </td>                
+        </tr>  
+     </div>
+</div>   
+</table>
+</body>

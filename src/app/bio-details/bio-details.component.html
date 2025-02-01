@@ -1,0 +1,20 @@
+<table>
+    <tr>
+        <th>Name</th>    
+        <th>Favorite Language</th>    
+        <th>Year Started</th>    
+    </tr>
+    <div *ngIf="dev">        
+          <tr>                   
+              <td>
+                {{dev.firstName + ' ' + dev.lastName}}
+              </td>  
+              <td>
+                {{dev.favoriteLanguage}}
+              </td>     
+              <td>
+                {{dev.yearStarted}}
+              </td>          
+          </tr>        
+  </div>   
+  </table>

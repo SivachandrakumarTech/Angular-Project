@@ -1,0 +1,20 @@
+<form [formGroup] = "bioForm" (ngSubmit) = "onSubmit()">
+    <p><label>First Name: </label>
+        <input type = "text" formControlName= "firstNameControl">
+    </p>
+    <p>
+        <label>Last Name: </label>
+        <input type = "text" formControlName = "lastNameControl">
+    </p>
+    <p>
+        <label>Favorite Langauge: </label>
+        <input type = "text" formControlName= "favoriteLanguageControl">
+    </p>
+    <p>
+        <label>Year Started: </label>
+        <input type = "text" formControlName= "yearStartedControl">
+    </p>
+    <p>
+        <button type="submit" [disabled]="!bioForm.valid">Submit</button>
+    </p>
+</form>
