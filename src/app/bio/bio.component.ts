@@ -1,10 +1,12 @@
-import { Component, inject} from '@angular/core';
+import { Component} from '@angular/core';
 import { Developer } from '../developer';
 import { CommonModule } from '@angular/common';
-import { DeveloperService } from '../developer.service';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { Observable } from 'rxjs';
+import { RouterLink } from '@angular/router';
 import { OnInit } from '@angular/core';
+import { inject } from '@angular/core';
+import { DeveloperService } from '../developer.service';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   imports: [CommonModule,RouterLink],
@@ -14,21 +16,23 @@ import { OnInit } from '@angular/core';
 export class BioComponent implements OnInit {
 
   developers!:Developer[];
-  //Using Inject
   private developerService = inject(DeveloperService);
-  //Using constructor
+  private route = inject(ActivatedRoute);
   
-/* constructor(private developerService: DeveloperService) {   
-} */
-
 ngOnInit(): void {
-  this.developerService.getAllDevelopers().subscribe(
-    (data: Developer[]) => {
-      this.developers = data;
-    },
-    (error: any) => {
-      console.error('Error fetching developers', error);
-    }
-  );
+  this.developers = this.route.snapshot.data['data'];
+  console.log(this.route.snapshot.data['data']);
+  console.log(this.developers);
+  console.log(this.route.snapshot);
+
+ //Moved the data fetching to resolver
+/*  this.developerService.getAllDevelopers().subscribe(
+  (data: Developer[]) => {
+    this.developers = data;
+  },
+  (error: any) => {
+    console.error('Error fetching developers in Data Resolver', error);
+  }
+); */
 }
 }

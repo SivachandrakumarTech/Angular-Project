@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { DeveloperService } from '../developer.service';
 import { ActivatedRoute  } from '@angular/router';
 import { Developer } from '../developer';
-import {OnInit} from '@angular/core';
+import { OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { inject } from '@angular/core';
 
 @Component({
   imports: [CommonModule],
@@ -14,12 +15,11 @@ export class BioDetailsComponent implements OnInit {
    
   id!: any;
   dev!: Developer|undefined;
+  
+  private developerService = inject(DeveloperService);
+  private route = inject(ActivatedRoute);
 
-  constructor(private developerService: DeveloperService, private route: ActivatedRoute) {    
-  }
-
-  ngOnInit(): void {
-    console.log(this.route.snapshot.paramMap.get('id')); // For debugging
+  ngOnInit(): void {   
     this.id = this.route.snapshot.paramMap.get('id');
     this.getDeveloper(this.id);
   }

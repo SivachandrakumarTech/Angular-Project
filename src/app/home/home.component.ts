@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Input } from '@angular/core';
 
 @Component({
   imports: [FormsModule, CommonModule],
@@ -8,5 +9,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  title = 'Hello, Siva!';  
+  title: string = 'Welcome to the Developer Bio App';  
+
+  getdata(): void{
+  }
+  
 }

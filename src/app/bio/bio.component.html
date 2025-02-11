@@ -34,15 +34,14 @@
   <tr>
       <th>Name</th>    
   </tr>
-  <div *ngIf="developers">
-    <div *ngFor="let dev of developers">          
-        <tr>                   
-            <td>
-             <!--  <a routerLink="{{dev.id}}">{{dev.firstName + ' ' + dev.lastName}}</a> -->
-              <a [routerLink] = "['/bio', dev.id]"> {{dev.firstName + ' ' + dev.lastName}}</a>
-            </td>                
-        </tr>  
-     </div>
-</div>   
+  @if(developers){
+   @for(dev of developers; track dev.id) {   
+            <tr>                   
+                <td>          
+                  <a [routerLink] = "['/bio', dev.id]"> {{dev.firstName + ' ' + dev.lastName}}</a>
+                </td>                
+            </tr>  
+  }
+}   
 </table>
 </body>

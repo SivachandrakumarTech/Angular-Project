@@ -7,7 +7,6 @@ import { Developer } from '../developer';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-bio-create',
   imports: [ReactiveFormsModule],
   templateUrl: './bio-create.component.html',
   styleUrl: './bio-create.component.css'
@@ -18,7 +17,7 @@ export class BioCreateComponent {
 
     private developerService = inject(DeveloperService);
     private formBuilder = inject(FormBuilder);
-    router = inject(Router);
+    private router = inject(Router);
 
     bioForm = this.formBuilder.group({
     firstNameControl:[''],
