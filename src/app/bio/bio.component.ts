@@ -21,10 +21,7 @@ export class BioComponent implements OnInit {
   
 ngOnInit(): void {
   this.developers = this.route.snapshot.data['data'];
-  console.log(this.route.snapshot.data['data']);
-  console.log(this.developers);
-  console.log(this.route.snapshot);
-
+  
  //Moved the data fetching to resolver
 /*  this.developerService.getAllDevelopers().subscribe(
   (data: Developer[]) => {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DeveloperService } from '../developer.service';
@@ -41,8 +42,14 @@ export class BioCreateComponent {
       (error: any) => {
         console.error('Error saving developer', error);
       }
-    );
+    );   
+}
 
-  }
-
+deleteDeveloper(){
+  this.developerService.deleteDeveloper().subscribe(        
+    (error: any) => {
+      console.error('Error saving developer', error);
+    }
+  );
+}
 }
